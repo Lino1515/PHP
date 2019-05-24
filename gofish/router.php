@@ -12,12 +12,13 @@ use ArmoredCore\Facades\Router;
  *  URLEncoder/HTTPRouter Routing Rules
  *  Use convention: controllerName@methodActionName
  * ************************************************************************** */
-
 Router::get('/', 'HomeController/index');
 Router::get('home/', 'HomeController/index');
 Router::get('home/index', 'HomeController/index');
 Router::get('home/start', 'HomeController/start');
-Router::get('play/', 'JogoController/JogoInicio');
+Router::get('play/', 'JogoController/jogoInicio');
+Router::get('home/jogo', 'JogoController/viewJogo');
+Router::post('pede-carta/', 'JogoController/jogoMedio');
 
 
 

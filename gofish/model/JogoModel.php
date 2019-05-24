@@ -21,30 +21,34 @@ class JogoModel {
     }
 
     //Fornece 4 cartas a cada jogador
-    function distribui() {
+    function distribui($baralho) {
         for ($i = 0; $i < 4; $i++) {
 
             $rand_keys = array_rand($baralho, 2);
-            $MinhaMao[] = $baralho[$rand_keys[0]];
-            $MaoBot[] = $baralho[$rand_keys[1]];
+            $minhaMao[] = $baralho[$rand_keys[0]];
+            $maoBot[] = $baralho[$rand_keys[1]];
 
-            var_dump(sizeof($baralho));
-
-            foreach ($baralho as $index => $teste) {
-                if ($MinhaMao == $teste) {
+            foreach ($baralho as $index => $carta) {
+                if ($minhaMao[$i] == $carta) {
                     $getIndex = $index;
                     //remove o valor acima descrito 
                     unset($baralho[$getIndex]);
                 }
             }
-            foreach ($baralho as $index => $baralhos) {
-                if ($MaoBot == $baralhos) {
+            foreach ($baralho as $index => $carta) {
+                if ($maoBot[$i] == $carta) {
                     $getIndex = $index;
                     //remove o valor acima descrito 
                     unset($baralho[$getIndex]);
                 }
             }
         }
+        $returnTotal = array($minhaMao, $maoBot, $baralho);
+        return $returnTotal;
+    }
+
+    function game($minhaMao, $maoBot, $baralho, $cartaPedida) {
+        echo 'Hello';
     }
 
 }

@@ -1,0 +1,26 @@
+<?php
+
+use ArmoredCore\WebObjects\URL;
+//use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\Session;
+?>
+<form action="<?= URL::toRoute('pede-carta/'); ?>" method="POST">
+    <?php
+    $arrayDeck = Session::get('arrayBaralho');
+
+    $minhaMao = $arrayDeck[0];
+    $maoBot = $arrayDeck[1];
+    $deck = $arrayDeck[2];
+
+    foreach ($maoBot as $result) {
+        $Path = ArmoredCore\WebObjects\Asset::image("assets/Cards/cardBack_red5.png");
+        echo '<img src="' . $Path . '" alt="' . $result . '">';
+    }
+    
+    foreach ($minhaMao as $result) {
+        $Path = ArmoredCore\WebObjects\Asset::image("assets/Cards/$result.png");
+        echo '<img class="PickUpCard" src="' . $Path . '" alt="' . $result . '">';
+    }
+    ?>
+    <button type="submit">enviar</button>
+</form>
